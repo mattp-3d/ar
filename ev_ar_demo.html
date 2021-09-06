@@ -1,0 +1,74 @@
+<!doctype HTML>
+<html>
+    <head>
+
+    <title>Hoare Lea | WebAR demo</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+    <link rel="stylesheet" href="ev_style.css"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/rbh0ife.css">
+
+    <link rel="apple-touch-icon-precomposed" href="img/favicon-128-charcole.png" />
+    <link rel="shortcut icon" href="https://hoarelea.com/app/themes/hoare-lea-website-2017/assets/images/favicons/favicon-128.png" />
+    <link rel="icon" type="image/png" href="https://hoarelea.com/app/themes/hoare-lea-website-2017/assets/images/favicons/favicon-128.png" sizes="128x128">
+
+    <style>
+    #heading {
+        top: 100px;
+    }
+    </style>
+
+    </head>
+
+    <body style='margin : 0px; overflow: hidden;'>
+
+      <img src="img\HL_WHITE.svg" alt="Hoare Lea"></img>
+              <Overlay>Augmented reality demo</Overlay>
+              <Overlay id="heading">Utility cupboard</Overlay>
+
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+          <a-scene renderer="logarithmicDepthBuffer: true;"
+                   embedded vr-mode-ui="enabled: false"
+                   arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
+          <a-assets>
+
+            <!-- load models -->
+            <a-asset-item id="model_00" src="https://cdn.jsdelivr.net/gh/mattp-3d/ar@main/models/utlityCupboard_01_UFH.glb?raw=true"></a-asset-item>
+            <a-asset-item id="model_01" src="https://cdn.jsdelivr.net/gh/mattp-3d/ar@main/models/utlityCupboard_01_MVHR.glb?raw=true"></a-asset-item>
+            <a-asset-item id="model_02" src="https://cdn.jsdelivr.net/gh/mattp-3d/ar@main/models/utlityCupboard_01_HIU.glb?raw=true"></a-asset-item>
+            <a-asset-item id="model_03" src="https://cdn.jsdelivr.net/gh/mattp-3d/ar@main/models/utlityCupboard_01_Drainage.glb?raw=true"></a-asset-item>
+            <a-asset-item id="model_04" src="https://cdn.jsdelivr.net/gh/mattp-3d/ar@main/models/utlityCupboard_08_cupboard.glb?raw=true"></a-asset-item>
+            <a-asset-item id="model_airflow" src="https://cdn.jsdelivr.net/gh/mattp-3d/ar@main/models/utlityCupboard_09_airflow.glb?raw=true"></a-asset-item>
+            <a-asset-item id="model_ref" src="https://cdn.jsdelivr.net/gh/mattp-3d/ar@main/models/utlityCupboard_08_cupboard_AR_REF_01.glb?raw=true"></a-asset-item>
+
+         </a-assets>
+
+        <a-marker type='barcode' value='6'>
+
+          <a-entity rotation="-90 0 0"
+                    position="-1.6 0 0.9"
+                    scale="0.94 0.94 0.94"
+          >
+
+          <!--<a-entity gltf-model="#model_ref"></a-entity>-->
+          <a-entity gltf-model="#model_00"></a-entity>
+          <a-entity gltf-model="#model_01"></a-entity>
+          <a-entity gltf-model="#model_02"></a-entity>
+          <a-entity gltf-model="#model_03"></a-entity>
+          <a-entity gltf-model="#model_04"></a-entity>
+
+          </a-entity>
+
+
+        </a-marker>
+
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
